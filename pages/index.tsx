@@ -7,10 +7,20 @@ import ProfessorRemarks from '../components/ProfessorRemarks'
 import Footer from '../components/Footer'
 import Image from 'next/image'
 
+interface Project {
+  id: number
+  title: string
+  category: string
+  description: string
+  technologies: string[]
+  status: string
+  timeline?: string
+}
+
 export default function Home() {
   const [activeTab, setActiveTab] = useState('all')
 
-  const completedProjects = [
+  const completedProjects: Project[] = [
     { 
       id: 1, 
       title: 'Smart Home Automation System', 
@@ -45,7 +55,7 @@ export default function Home() {
     }
   ]
 
-  const plannedProjects = [
+  const plannedProjects: Project[] = [
     { 
       id: 5, 
       title: 'Data Structures Visualizer', 
@@ -352,7 +362,7 @@ export default function Home() {
               <div key={project.id} className="bg-white/80 backdrop-blur-sm rounded-2xl shadow-lg p-6 hover:shadow-xl transition-all duration-300 border border-white/20 hover-lift group">
                 <div className="flex justify-between items-start mb-4">
                   <h3 className="text-xl font-semibold text-gray-900 group-hover:text-blue-600 transition-colors">{project.title}</h3>
-                  {project.status === 'planned' && (
+                  {project.status === 'planned' && project.timeline && (
                     <span className="px-2 py-1 bg-gradient-to-r from-yellow-400 to-orange-500 text-white rounded-full text-xs font-medium shadow-lg">
                       {project.timeline}
                     </span>
