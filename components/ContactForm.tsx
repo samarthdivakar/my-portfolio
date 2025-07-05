@@ -45,7 +45,7 @@ export default function ContactForm() {
             </svg>
           </div>
           <h3 className="text-2xl font-bold text-gray-900 mb-2">Get In Touch</h3>
-          <p className="text-gray-600">Let's start a conversation!</p>
+          <p className="text-gray-600">Let&apos;s start a conversation!</p>
         </div>
         
         {isSubmitted ? (
@@ -56,7 +56,7 @@ export default function ContactForm() {
               </svg>
             </div>
             <h4 className="text-xl font-semibold text-gray-900 mb-2">Message Sent!</h4>
-            <p className="text-gray-600">Thank you for reaching out. I'll get back to you soon!</p>
+            <p className="text-gray-600">Thank you for reaching out. I&apos;ll get back to you soon!</p>
           </div>
         ) : (
           <form onSubmit={handleSubmit} className="space-y-6">

@@ -1,5 +1,3 @@
-import { useState } from 'react'
-
 export default function ProfessorRemarks() {
   const remarks = [
     {
@@ -27,7 +25,7 @@ export default function ProfessorRemarks() {
       department: "Electronics Engineering",
       university: "REVA University",
       quote:
-        "Samarth's work ethic and attention to detail in embedded systems projects is commendable. He shows promise in hardware-software integration and system design.",
+        "Samarth&apos;s work ethic and attention to detail in embedded systems projects is commendable. He shows promise in hardware-software integration and system design.",
     },
     {
       id: 4,
@@ -68,7 +66,7 @@ export default function ProfessorRemarks() {
                   </div>
                 </div>
 
-                <blockquote className="text-gray-700 mb-6 leading-relaxed italic text-lg">"{remark.quote}"</blockquote>
+                <blockquote className="text-gray-700 mb-6 leading-relaxed italic text-lg">&ldquo;{remark.quote}&rdquo;</blockquote>
 
                 <div className="border-t border-gray-200 pt-4">
                   <div className="text-sm text-gray-600">
