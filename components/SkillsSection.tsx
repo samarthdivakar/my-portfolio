@@ -1,253 +1,118 @@
-import { motion } from 'framer-motion'
+import { useRef, useEffect, useState } from 'react'
 
 export default function SkillsSection() {
+    const containerRef = useRef<HTMLDivElement>(null)
+    const [isClient, setIsClient] = useState(false)
+    
+    useEffect(() => {
+        setIsClient(true)
+    }, [])
+
     const skills = [
-        { name: 'React', level: 85, color: 'from-blue-500 to-blue-600' },
-        { name: 'JavaScript', level: 90, color: 'from-yellow-500 to-yellow-600' },
-        { name: 'TypeScript', level: 80, color: 'from-blue-600 to-blue-700' },
-        { name: 'Node.js', level: 75, color: 'from-green-500 to-green-600' },
-        { name: 'Python', level: 85, color: 'from-blue-500 to-purple-600' },
-        { name: 'HTML/CSS', level: 95, color: 'from-orange-500 to-red-500' },
-        { name: 'Tailwind CSS', level: 90, color: 'from-cyan-500 to-blue-500' },
-        { name: 'Git', level: 80, color: 'from-orange-600 to-red-600' },
-        { name: 'PostgreSQL', level: 70, color: 'from-blue-400 to-blue-500' },
-        { name: 'MongoDB', level: 65, color: 'from-green-400 to-green-500' },
-        { name: 'Docker', level: 60, color: 'from-blue-500 to-blue-600' },
-        { name: 'AWS', level: 55, color: 'from-orange-500 to-yellow-500' }
-    ]
-
-    const frameworks = [
-        { name: 'Next.js', icon: '⚡' },
-        { name: 'Express.js', icon: '🚀' },
-        { name: 'NestJS', icon: '🪺' },
-        { name: 'Django', icon: '🐍' },
-        { name: 'TensorFlow', icon: '🧠' },
-        { name: 'PyTorch', icon: '🔥' },
-        { name: 'Redux', icon: '🔄' },
-        { name: 'GraphQL', icon: '📊' }
-    ]
-
-    const tools = [
-        { name: 'VS Code', icon: '💻' },
-        { name: 'Postman', icon: '📮' },
-        { name: 'Figma', icon: '🎨' },
-        { name: 'Jira', icon: '📋' },
-        { name: 'Docker', icon: '🐳' },
-        { name: 'GitHub', icon: '🐙' },
-        { name: 'Vercel', icon: '▲' },
-        { name: 'Netlify', icon: '🌐' }
+        { name: "Python", level: 85, color: "from-blue-400 to-blue-600", icon: "🐍" },
+        { name: "C/C++", level: 80, color: "from-blue-600 to-blue-800", icon: "🔷" },
+        { name: "Java", level: 60, color: "from-orange-500 to-red-500", icon: "☕" },
+        { name: "SQL", level: 70, color: "from-blue-300 to-blue-500", icon: "🗄️" },
+        { name: "Verilog", level: 75, color: "from-purple-500 to-pink-500", icon: "🔌" },
+        { name: "Assembly", level: 65, color: "from-gray-500 to-gray-700", icon: "⚙️" },
+        { name: "HTML/CSS", level: 80, color: "from-orange-400 to-orange-600", icon: "🌐" },
+        { name: "JavaScript", level: 70, color: "from-yellow-500 to-orange-500", icon: "🟨" },
+        { name: "React", level: 60, color: "from-cyan-400 to-blue-500", icon: "⚛️" },
+        { name: "Git", level: 75, color: "from-orange-500 to-red-500", icon: "📚" },
+        { name: "Machine Learning", level: 80, color: "from-purple-500 to-pink-500", icon: "🤖" },
+        { name: "Data Structures", level: 85, color: "from-green-400 to-green-600", icon: "📊" }
     ]
 
     return (
-        <section id="skills" className="py-20 bg-white">
-            <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-                <motion.div 
-                    className="text-center mb-16"
-                    initial={{ opacity: 0, y: 30 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.8 }}
-                    viewport={{ once: true }}
-                >
-                    <motion.h2 
-                        className="text-4xl font-bold text-gray-900 mb-4"
-                        initial={{ opacity: 0, y: 20 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 0.6, delay: 0.2 }}
-                        viewport={{ once: true }}
-                    >
-                        Skills & Technologies
-                    </motion.h2>
-                    <motion.p 
-                        className="text-xl text-gray-600 max-w-2xl mx-auto"
-                        initial={{ opacity: 0, y: 20 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 0.6, delay: 0.4 }}
-                        viewport={{ once: true }}
-                    >
-                        A comprehensive overview of my technical skills and the tools I use to bring ideas to life.
-                    </motion.p>
-                </motion.div>
+        <section ref={containerRef} id="skills" className="py-20 bg-gradient-to-br from-gray-50 via-white to-blue-50 relative overflow-hidden">
+            {/* Enhanced Background Pattern */}
+            <div className="absolute inset-0 opacity-5">
+                <div className="absolute inset-0" style={{
+                    backgroundImage: `radial-gradient(circle at 20% 80%, #007AFF 0%, transparent 50%), radial-gradient(circle at 80% 20%, #34C759 0%, transparent 50%), radial-gradient(circle at 40% 40%, #FF6B6B 0%, transparent 50%)`,
+                }}></div>
+            </div>
 
-                {/* Programming Languages & Skills */}
-                <motion.div 
-                    className="mb-16"
-                    initial={{ opacity: 0, y: 30 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.8, delay: 0.2 }}
-                    viewport={{ once: true }}
-                >
-                    <motion.h3 
-                        className="text-2xl font-semibold text-gray-900 mb-8 text-center"
-                        initial={{ opacity: 0, y: 20 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 0.6, delay: 0.4 }}
-                        viewport={{ once: true }}
-                    >
-                        Programming Languages & Skills
-                    </motion.h3>
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                        {skills.map((skill, index) => (
-                            <motion.div 
-                                key={skill.name}
-                                className="bg-gray-50 rounded-lg p-6 hover:shadow-lg transition-shadow duration-300"
-                                initial={{ opacity: 0, x: index % 2 === 0 ? -30 : 30 }}
-                                whileInView={{ opacity: 1, x: 0 }}
-                                transition={{ duration: 0.6, delay: index * 0.1 }}
-                                viewport={{ once: true }}
-                                whileHover={{ scale: 1.02, y: -2 }}
-                            >
-                                <div className="flex justify-between items-center mb-2">
-                                    <span className="font-semibold text-gray-800">{skill.name}</span>
-                                    <span className="text-sm text-gray-600">{skill.level}%</span>
+            {/* Animated Floating Elements */}
+            <div className="absolute top-10 right-10 w-24 h-24 bg-blue-400/10 rounded-full blur-xl animate-pulse"></div>
+            <div className="absolute bottom-10 left-10 w-32 h-32 bg-purple-400/10 rounded-full blur-xl animate-pulse" style={{animationDelay: '2s'}}></div>
+
+            <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+                <div className="text-center mb-16">
+                    <h2 className="text-4xl sm:text-5xl font-bold text-gray-900 mb-6">
+                        <span className="block">Technical</span>
+                        <span className="block text-gradient">Skills</span>
+                    </h2>
+                    
+                    <p className="text-xl text-gray-600 max-w-2xl mx-auto">
+                        A comprehensive overview of my technical expertise and proficiency levels
+                    </p>
+                </div>
+
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    {skills.map((skill, index) => (
+                        <div
+                            key={skill.name}
+                            className="group relative bg-white/80 backdrop-blur-sm rounded-2xl p-6 shadow-lg border border-gray-200/50 hover:shadow-2xl transition-all duration-300 relative overflow-hidden group-hover:border-blue-300"
+                        >
+                            {/* Skill Header with Magnetic Icon */}
+                            <div className="flex items-center justify-between mb-4 relative z-10">
+                                <div className="flex items-center space-x-3">
+                                    <div className="text-2xl group-hover:rotate-12 transition-transform duration-300">
+                                        {skill.icon}
+                                    </div>
+                                    <h3 className="text-lg font-semibold text-gray-800 group-hover:text-blue-600 transition-colors duration-300">
+                                        {skill.name}
+                                    </h3>
                                 </div>
+                                <span className="text-sm font-medium text-gray-500 group-hover:text-blue-500 transition-colors duration-300">
+                                    {skill.level}%
+                                </span>
+                            </div>
+
+                            {/* Enhanced Progress Bar with Physics */}
+                            <div className="relative z-10">
                                 <div className="w-full bg-gray-200 rounded-full h-3 overflow-hidden">
-                                    <motion.div 
-                                        className={`h-full bg-gradient-to-r ${skill.color} rounded-full`}
-                                        initial={{ width: 0 }}
-                                        whileInView={{ width: `${skill.level}%` }}
-                                        transition={{ duration: 1.5, delay: index * 0.1 + 0.5, ease: "easeOut" }}
-                                        viewport={{ once: true }}
-                                    />
+                                    <div
+                                        className={`h-full bg-gradient-to-r ${skill.color} rounded-full relative overflow-hidden transition-all duration-1000 ease-out`}
+                                        style={{ width: `${skill.level}%` }}
+                                    >
+                                        {/* Shimmer Effect */}
+                                        <div className="absolute inset-0 bg-white/30 animate-pulse"></div>
+                                    </div>
                                 </div>
-                            </motion.div>
-                        ))}
-                    </div>
-                </motion.div>
+                            </div>
 
-                {/* Frameworks & Libraries */}
-                <motion.div 
-                    className="mb-16"
-                    initial={{ opacity: 0, y: 30 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.8, delay: 0.4 }}
-                    viewport={{ once: true }}
-                >
-                    <motion.h3 
-                        className="text-2xl font-semibold text-gray-900 mb-8 text-center"
-                        initial={{ opacity: 0, y: 20 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 0.6, delay: 0.6 }}
-                        viewport={{ once: true }}
-                    >
-                        Frameworks & Libraries
-                    </motion.h3>
-                    <div className="grid grid-cols-2 sm:grid-cols-4 gap-6">
-                        {frameworks.map((framework, index) => (
-                            <motion.div 
-                                key={framework.name}
-                                className="bg-gradient-to-br from-blue-50 to-purple-50 rounded-xl p-6 text-center hover:shadow-lg transition-all duration-300 border border-blue-100"
-                                initial={{ opacity: 0, scale: 0.8 }}
-                                whileInView={{ opacity: 1, scale: 1 }}
-                                transition={{ duration: 0.6, delay: index * 0.1 }}
-                                viewport={{ once: true }}
-                                whileHover={{ scale: 1.05, y: -5 }}
+                            {/* Skill Level Indicator with Magnetic Effect */}
+                            <div className="mt-3 flex justify-between text-xs text-gray-500 relative z-10">
+                                <span>Beginner</span>
+                                <span>Expert</span>
+                            </div>
+                        </div>
+                    ))}
+                </div>
+
+                {/* Enhanced Additional Skills Section */}
+                <div className="mt-16 text-center">
+                    <h3 className="text-2xl font-bold text-gray-800 mb-6">
+                        Additional Skills & Tools
+                    </h3>
+                    
+                    <div className="flex flex-wrap justify-center gap-4">
+                        {[
+                            "UNIX Shell", "VS Code", "Arduino", "Raspberry Pi", "Linux",
+                            "DevOps", "CI/CD", "Agile", "Scrum", "Embedded Systems",
+                            "Microprocessors", "OS Basics", "R", "TensorFlow", "Scikit-learn",
+                            "Pandas", "NumPy", "Jupyter", "Computer Vision", "Deep Learning"
+                        ].map((tool, index) => (
+                            <span
+                                key={tool}
+                                className="px-4 py-2 bg-white/60 backdrop-blur-sm rounded-full text-sm font-medium text-gray-700 border border-gray-200/50 hover:bg-blue-50 hover:border-blue-300 hover:text-blue-700 transition-all duration-300 cursor-pointer hover:scale-105"
                             >
-                                <motion.div 
-                                    className="text-4xl mb-3"
-                                    animate={{ rotate: [0, 5, -5, 0] }}
-                                    transition={{ duration: 2, repeat: Infinity, delay: index * 0.2 }}
-                                >
-                                    {framework.icon}
-                                </motion.div>
-                                <h4 className="font-semibold text-gray-800">{framework.name}</h4>
-                            </motion.div>
+                                {tool}
+                            </span>
                         ))}
                     </div>
-                </motion.div>
-
-                {/* Tools & Platforms */}
-                <motion.div 
-                    initial={{ opacity: 0, y: 30 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.8, delay: 0.6 }}
-                    viewport={{ once: true }}
-                >
-                    <motion.h3 
-                        className="text-2xl font-semibold text-gray-900 mb-8 text-center"
-                        initial={{ opacity: 0, y: 20 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 0.6, delay: 0.8 }}
-                        viewport={{ once: true }}
-                    >
-                        Tools & Platforms
-                    </motion.h3>
-                    <div className="grid grid-cols-2 sm:grid-cols-4 gap-6">
-                        {tools.map((tool, index) => (
-                            <motion.div 
-                                key={tool.name}
-                                className="bg-gradient-to-br from-green-50 to-blue-50 rounded-xl p-6 text-center hover:shadow-lg transition-all duration-300 border border-green-100"
-                                initial={{ opacity: 0, scale: 0.8 }}
-                                whileInView={{ opacity: 1, scale: 1 }}
-                                transition={{ duration: 0.6, delay: index * 0.1 }}
-                                viewport={{ once: true }}
-                                whileHover={{ scale: 1.05, y: -5 }}
-                            >
-                                <motion.div 
-                                    className="text-4xl mb-3"
-                                    animate={{ y: [0, -3, 0] }}
-                                    transition={{ duration: 2, repeat: Infinity, delay: index * 0.1 }}
-                                >
-                                    {tool.icon}
-                                </motion.div>
-                                <h4 className="font-semibold text-gray-800">{tool.name}</h4>
-                            </motion.div>
-                        ))}
-                    </div>
-                </motion.div>
-
-                {/* Additional Skills */}
-                <motion.div 
-                    className="mt-16 bg-gradient-to-r from-gray-50 to-blue-50 rounded-2xl p-8"
-                    initial={{ opacity: 0, y: 30 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.8, delay: 0.8 }}
-                    viewport={{ once: true }}
-                >
-                    <motion.h3 
-                        className="text-2xl font-semibold text-gray-900 mb-6 text-center"
-                        initial={{ opacity: 0, y: 20 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 0.6, delay: 1 }}
-                        viewport={{ once: true }}
-                    >
-                        Additional Skills
-                    </motion.h3>
-                    <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-                        <motion.div 
-                            className="text-center"
-                            initial={{ opacity: 0, x: -30 }}
-                            whileInView={{ opacity: 1, x: 0 }}
-                            transition={{ duration: 0.6, delay: 1.2 }}
-                            viewport={{ once: true }}
-                        >
-                            <div className="text-3xl mb-3">🎯</div>
-                            <h4 className="font-semibold text-gray-800 mb-2">Problem Solving</h4>
-                            <p className="text-gray-600 text-sm">Strong analytical and logical thinking skills</p>
-                        </motion.div>
-                        <motion.div 
-                            className="text-center"
-                            initial={{ opacity: 0, y: 30 }}
-                            whileInView={{ opacity: 1, y: 0 }}
-                            transition={{ duration: 0.6, delay: 1.4 }}
-                            viewport={{ once: true }}
-                        >
-                            <div className="text-3xl mb-3">🤝</div>
-                            <h4 className="font-semibold text-gray-800 mb-2">Team Collaboration</h4>
-                            <p className="text-gray-600 text-sm">Excellent communication and teamwork abilities</p>
-                        </motion.div>
-                        <motion.div 
-                            className="text-center"
-                            initial={{ opacity: 0, x: 30 }}
-                            whileInView={{ opacity: 1, x: 0 }}
-                            transition={{ duration: 0.6, delay: 1.6 }}
-                            viewport={{ once: true }}
-                        >
-                            <div className="text-3xl mb-3">📚</div>
-                            <h4 className="font-semibold text-gray-800 mb-2">Continuous Learning</h4>
-                            <p className="text-gray-600 text-sm">Always eager to learn new technologies and methodologies</p>
-                        </motion.div>
-                    </div>
-                </motion.div>
+                </div>
             </div>
         </section>
     )
